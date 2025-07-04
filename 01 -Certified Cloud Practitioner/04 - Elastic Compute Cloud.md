@@ -32,7 +32,7 @@ Abaixo algumas informacoes para analise durante a escolha do instance type:
 
 `Memory (GiB)`: Quantidade de memoria em Gigas;
 
-`Instance Storage (GB)`: Tamanho do espaco de armazenamento, quando identificado como `EBS-Only`, significa que precisa se adicionado um disco EBS (Elastic Block Storage) na instancia para obter um armazenamento;
+`Instance Storage (GB)`: Tamanho do espaco de armazenamento, quando identificado como `EBS-Only`, significa que precisa se adicionado um disco EBS (Elastic Block Store) na instancia para obter um armazenamento;
 
 `Network Bandwidth (Gbps)`: Taxa de transferencia da rede (throughput);
 
@@ -119,7 +119,7 @@ Para subir uma instancia EC2, acesse o console da AWS, primeiro passo, identifiq
 
 `Network settings`: Configure a parte de Network como VPC, Subnet, Auto-Assign de Public IP, Security Group em que a instancia fara parte.
 
-`Configure storage`: Configure o(s) disco(s) EBS (Elastic Block Storage) para que a maquina possua disco de armazenamento.
+`Configure storage`: Configure o(s) disco(s) EBS (Elastic Block Store) para que a maquina possua disco de armazenamento.
 
 `Advanced details`: Nao obrigatorio, porem existem uma serie de configuracoes que podem ser realizadas durante o provisionamento da instancia, como por exemplo um user data que fara uma serie de comandos como por exemplo a instalacao de um apache, NGINX apos o deploy da instancia.
 
