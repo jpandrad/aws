@@ -29,7 +29,7 @@ Bancos disponiveis no RDS:
 
 O Aurora possui uma compatibilidade para MySQL e Postgres, nao possuindo disponibilidade para free tier, ela garante que o Aurora possui 5x mais performance do que um MySQL e 3x mais performance do que o Postgres.
 
-## Criando um banco de dados com o RDS
+### Criando um banco de dados com o RDS
 Dentro do painel da AWS, localize o servico `RDS` (Aurora and RDS -Managed Relational Database Service). Clique em `Create database`.
 
 > [!CAUTION]  
@@ -71,3 +71,48 @@ Dentro do painel da AWS, localize o servico `RDS` (Aurora and RDS -Managed Relat
 Caso esteja tudo certo, clique em `Create Database`
 
 
+## Elasticache
+Como percebemos na criacao de um RDS, o servico provisiona instancias para o banco de dados, ou seja, um numero de instancias, com volumes EBS que pode ser `HDD` ou `SSD`. Este tipo ainda caba sendo um pouco mais lento, pois o banco fica armazenado em um volume, e temos o tempo de latencia de acesso ao volume. O `Elasticache` nada mais do que um banco de dados em memoria. Ele e em `In-Memory`, tornando um cache, por um curto espaco de tempo.
+
+Quando utilizado o `Elasticache`, apontamos os servidores de aplicacao para o servico do `Elasticache` e entao o `Elasticache` consulta o banco de dados. Esta arquitetura reduz evita carga ao banco de dados, pois ele faz a consulta e ao fazer a proxima requisicao, o proprio `Elasticache` nao vai ate o banco de dados solicitar o processamento. Aumentando a performance da aplicacao e reduzindo o load no banco de dados.
+
+Ele utiliza um de dois tipos de armazenamento (data store):
+1. Redis
+2. Memcache
+
+Sao Open Sources, a diferenca e que o `Memcache` e bem mais simples e o `Redis` possui mais features ou caracteristicas que podemos alterar.
+
+
+## DynamoDB
+A AWS possui como proprietario um banco de dados `Non SQL`, chamado `DynamoDB`, existem outros, porem este e da AWS, ele possui uma disponibilidade e escabilidade muito grande. Armazernando por padrao em 3 AZs. O `DynamoDB` ao contrario dos demais, ele e `Servless`, ou seja, nao precisa de servidores ou instancias para utilizar.
+
+### Criando um DynamoDB
+Na console da AWS, procure pelo servico `DynamoDB` - Managed NoSQL Database. Ele por nao ser `SQL`, ele funciona como tablelas. Clique em `Create table`.
+
+* `Table name`: Nome da tabela que deseja criar.
+
+* `Partition key`: Seria uma chave primaria da tabela. Um valor de hash para recuperar itens da tabela e alocar os dados.
+
+* `Table settings`: Pode manter o padrao `Default settings`.
+
+* `Tags`: Tags para identificacao.
+
+Clique em `Create table` para provisionar o DynamoDB.
+
+
+## Amazon Neptune
+O `Amazon Neptune` e um tipo de banco de dados para uma funcao, ele e fantastico para quando utilizado Social Network ou quando a aplicacao possui uma grande quantidade de links de artigos por exemplo Wiki Pedia.
+
+Quando implementado, ele e disponivel em 3 AZs no minimo, e pode criar no maximo 15 Read replicas, podendo armazenar bilhoes de mensagens ou informacoes no `Amazon Neptune`. A latencia e na casa de milisegundos e pode ser utilzia com pesquisas complexas. O grande ponto do `Amazon Neptune`, ele pode criar `Graph Dataset`, ou seja, visualizar de forma grafica os dados dentro do banco.
+
+
+## AWS Glue
+O `AWS Glue` faz `ETL (Extract Transform Load)`, ou seja, extrai, transforma e carrega, sendo utilizado para a parte de analytics, fazer analises e entender o que os dados podem nos passar.
+
+Basicamente o `AWS Glue` faz:
+
+`Extract`: Extrai dados de um `Bucket S3` ou `banco de Dados / RDS`.
+
+`Transform`: Transforma dentro do `Glue`.
+
+`Load`: Carrega estes dados para um `Redshift`, possibilitando que voce faca analise dos dados.
