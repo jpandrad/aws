@@ -4,6 +4,7 @@ O Elastic Block Store (EBS) sao discos alocados em Storages fisicos em clusters 
 Importante saber que o EBS esta disponivel apenas na mesma Availability Zone (AZ) na qual foi criada, para que seja possivel utilizar o volume em outra AZ, e necessario migrar o disco utilizando um `Snapshot`, ou seja, cria uma copia do volume EBS, migra a copia do volume para outra AZ e so entao pode fazer a criacao de um novo volume para que os dados possam ser utilizados em outra instancia.
 
 Abaixo um Diagrama de como funciona o Elastic Block Store
+
 ![Diagram EBS](Images/Diagram_Amazon-Elastic-Block-Store.png)
 
 Caso caia na prova sobre isso, o disco/volume so pode ser feito o attachment na mesma AZ, a migracao parte de uma copia e a utilizacao de um novo volume criado em uma outra AZ.

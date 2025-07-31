@@ -6,6 +6,7 @@ Uma `Subnet` e uma `VPC` nao conseguem por si so, o acesso a Internet, precisamo
 * `Internet Gateway`: Permite o acesso a Internet como tambem o acesso da Internet para dentro da rede.
 
 Abaixo um diagrama da Virtual Private Cloud (VPC):
+
 ![Diagram EBS](Images/VPC.png)
 
 Documentacao: https://docs.aws.amazon.com/pt_br/vpc/latest/userguide/what-is-amazon-vpc.html
@@ -135,6 +136,7 @@ Para acessar o painel de configuracoes, acesse o servico `VPC` > `Security` > `N
 Por padrao, uma maquina em uma subnet dentro de uma VPC, nao consegue se comunicar com outra maquina que esta dentro de outra subnet em uma outra VPC. Para conseguirmos este tipo de comunicacao, utilizamos o `VPC Peering`. Este tipo de comunicacao tambem e conhecida como `ClassicLink`.
 
 Abaixo um Diagrama de como funciona o VPC Peering:
+
 ![Diagram VPC Peering](Images/peering-intro-diagram.png)
 
 Documentacao: https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html
