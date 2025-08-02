@@ -243,3 +243,27 @@ Os logs podem demorar um pouco para ser criado.
 
 
 ## Client e Site to Site VPN
+`Virtual Private Network (VPN)` permite que outras redes ou usuarios possam se comunicar diretamente com recursos na AWS como se estivessem trabalhando na mesma empresa, possibilitando que todo o trafego de acesso a aplicacoes web ou acessos remotos a servidores, sejam realizado internamente. Existem dois tipos de VPN:
+1. `VPN Client`: O Cliente precisa baixar um client de VPN e instalar na maquina local, este client se conecta a um `VPN Gateway` e possibilita acessar os recursos na AWS.
+
+VPN Client da AWS: https://aws.amazon.com/pt/vpn/client-vpn/
+
+2. `VPN Site-to-Site`: Conexao direta entre a empresa com a AWS, criando apenas um unico tunel de acesso para que todos os colaboradores dentro da empresa possam acessar sem a necessidade de cada um instalar um client na maquina e fazer sua propria conexao. Sendo necessario tambem de um `VPN Gateway`.
+
+
+## AWS Private Link
+O `AWS Private Link` e um tipo de endpoint para VPCs dentro da AWS. Um cenario utilizado e quando temos uma instancia rodando dentro da AWS e uma empresa terceira precisa ter acesso as instancias como por exemplo implementar um monitoramento nos servidores. O Software de monitoramento esta na conta da empresa terceira e ela precisa ter uma conexao para chegar ate o ambiente das instancias EC2.
+
+A conexao entre VPC's podem ser realizadas utilizando o `VPC Peering`, porem do lado do fornecedor, exitem outras clientes, e se ela tiver que fazer essas conexoes para inumeros clientes, seria muito custoso. A forma mais inteligente para fazer isso e o `AWS Private Link`.
+
+A empresa terceira coloca um `Network Load Balancer` do lado da empresa e do seu lado, voce aponta para uma `ENI` (Elastic Network Interface) e a AWS configura um `Private Link`. As vantagens e que voce nao precisa criar Internet Gateway, tabela de roteamento ou ACL. Somente esta conexao garante que o vendor vai ter um link seguro e escalavel.
+
+
+## Direct Connect
+O `Direct Connect` e um link direto e dedicado com a AWS, possuindo inumeras vantagens com relacao a VPN, possibilitando um trafego muito maior do que uma conexao convencional via Internet.
+
+
+## AWS Transit Gateway
+O `AWS Transit Gateway` e um servico que ajuda na conexao entre VPCs. Podemos tambem utilizar o `VPC Peering`, porem se olharmos um cenarios no qual temos poucas VPC e conforme aumentamos o numero, o gerenciamento acaba sendo mais complexo, uma vez que precisamos configurar o `VPC Peering` em todas as VPCs incluindo quando criamos uma nova VPC. O `Transit Gateway` possibilita que voce conecte as VPCs e nao uma para outra, criando uma topologia `HUB-AND-SPOKE`.
+
+Possibilitando tambem a conexao de um data center `On-Premise` via `Direct Connect`, `VPN Site-to-Site` ou `VPN Client`.
