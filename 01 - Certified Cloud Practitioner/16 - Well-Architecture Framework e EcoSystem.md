@@ -55,3 +55,41 @@ Outro exemplo seria estudar se a aplicacao hospedada no servidor, realmente prec
 
 ### Sustentabilidade
 Existem algumas empresas que possui como bench marketing a `Sustentabilidade`, focando na reducao do impacto ambiental. Como podemos reduzir um consumo em uma aplicacao. poder olhar para regiao da AWS que utilizam mais energia limpas.
+
+
+## AWS Cloud Adoption Framework (AWS CAF)
+O `AWS CAF` foi criado pela AWS junto com outras empresas e analistas e colocou em um documento. Este framework fala sobre capacidade, controle, compliance e como transformar para a nuvem.
+
+Documentacao: https://aws.amazon.com/pt/cloud-adoption-framework/
+
+Para a prova, nao precisa saber tudo, precisa apenas entender e saber os beneficios
+
+* Reduzir os riscos comerciais
+
+* Melhore a performance ambiental, social e de governanca
+
+* Aumente a receita
+
+* Aumente a eficiencia operacional
+
+
+## AWS Ecosystem
+O `AWS Ecosystem` e um eco sistema que a AWS criou em ao redor dela, para te ajudar como cliente.
+
+Blog que possui tudo o que esta acontecendo na AWS como novidades e melhorias (https://aws.amazon.com/blogs/).
+
+Forum da AWS para perguntas e contato e se comunicar com a comunidade (https://repost.aws/pt).
+
+Existe um portal para whitepapers e guides de como fazer qualquer coisa dentro da AWS (https://aws.amazon.com/pt/whitepapers/)
+
+Partner Solutions (antigamente chamado de Quick Start), sao empresas que criaram solucoes na AWS e podem ajudar outros clientes. (https://partners.amazonaws.com/partners)
+
+
+## AWS IQ
+O `AWS IQ` e um servico para concluir servicos na AWS, que precisam de uma ajuda de outros experts. Voce pode pedir uma ajuda e pagar na plataforma, bem parecido com free lancer, porem com um nivel de conhecimento alto e certificado pela AWS.
+
+Portal: https://iq.aws.amazon.com/
+
+
+## AWS Managed Services
+O `AWS Managed Services` e um servico no qual a empresa quer que a AWS gerencia os servicos da sua empresa, sendo um servico com alto custo, todo o gerenciamento da cloud da sua empresa passa a ser pela AWS. Desde gerenciamento, migracao e implementacao da Cloud passa a ser AWS. Suporte 24/7 nao sendo necessario a preocupacao a equipe ou profissionais altamente qualificados.
