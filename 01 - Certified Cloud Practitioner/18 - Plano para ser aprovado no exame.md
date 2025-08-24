@@ -1,0 +1,2 @@
+# Plano para ser aprovado no exame
+Faca muitos simulados para que voce entenda os tipos de questoes que caem na prova, conhecer e entender os servicos e um passo para a acertificacao, porem e necessario entender. Tente fazer os simulados ate chegar em uma margem de 90% de acerto, a prova pede bem menos, porem ajuda a estar mais confiante para tirar a certificacao.
