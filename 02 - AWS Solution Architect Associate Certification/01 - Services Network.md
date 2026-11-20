@@ -31,3 +31,30 @@ These are the summaries of the AWS Network Service.
 7. Every subnet is associated with one route table;
 8. Each VPC has one default route table;
 9. Multiple subnets can be associated with a single route table;
+
+
+## Internet Gateways
+1. Enable resources to connect to internet;
+2. Internet Gateways attach to a VPC and are region resilient;
+3. VPC can only have max 1 internet gateway, and an internet gateway can onle be attached to max 1 VPC;
+4. A subnet is made public once a default route point to the internet gateway in the VPC;
+
+
+## NAT Gateways
+1. NAT Gateways allow subnets to talk to the internet, but connections must be initiated from within the VPC;
+2. NAT Gateways are deployed onto public Subnets so that they have a public IP and internet access;
+3. Uses Elastic IPs;
+4. AZ-reliant service need 1 NAT Gateway in each Availability Zone;
+5. Route table for private subnets should point to NAT Gateway;
+6. Managed by AWS;
+7. Charged for wach hour that NAT gateway is available and for each Gigabyte of data that it processes;
+8. A NAT gateway supports 5 Gbps of bandwidth and automatically scales up to 100 Gbps;
+
+
+
+## Private and Public Subnets
+1. Resources in public subnets are accessible to and from the internet;
+2. Resources in private subnets are not accessible from the internet;
+3. gateways determine whether a subnet is public or private;
+
+
