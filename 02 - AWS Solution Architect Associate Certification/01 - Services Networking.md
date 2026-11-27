@@ -113,7 +113,6 @@ AWS have 3 Load Balanacers Types:
     * Supports HTTP redirect and custom HTTP response;
 * Perform application-specific health checks;
 
-
 ### Networtk Load Balancer (NLB)
 * Load balancer traffic based on TCP/UDP (layer 4);
 * Meant for applications that don't use HTTP/HTTPS;
@@ -136,3 +135,19 @@ AWS have 3 Load Balanacers Types:
 
 
 ## VPN
+### VPN Gateway Limits
+* 1.25 Gbps Maximum Bandwidth per VPN tunnel;
+* 140,000 Maximum packets per second;
+* 1,466 Maximum transmission unit (MTU);
+
+### Summary
+1. Connect VPCs to on-primise data centers;
+2. A virtual private gateway is the Amazon-side endpoint for your VPN, attachable to one VPC;
+3. Customer Gateway is your side's physical device or software in a VPN connection;
+4. Traverses over the public internet;
+5. On-primise network can be set statically in a route table or dynamically exchanged via BGP;
+6. charged per hour for every VPN connection as well as engress data out;
+7. Max bandwidth 1.25 Gbps;
+
+
+## Direct Connect
