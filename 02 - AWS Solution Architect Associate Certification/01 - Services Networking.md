@@ -51,10 +51,88 @@ These are the summaries of the AWS Network Service.
 8. A NAT gateway supports 5 Gbps of bandwidth and automatically scales up to 100 Gbps;
 
 
-
 ## Private and Public Subnets
 1. Resources in public subnets are accessible to and from the internet;
 2. Resources in private subnets are not accessible from the internet;
 3. gateways determine whether a subnet is public or private;
 
 
+## DNS
+1. Device private IPs will automatically be assigned a DNS entry;
+2. AWS DNS server can be accessed on the second IP of the VPC CIDR block as well - 169.254.169.253;
+3. `enableDnsHostnames` - Determines whether the VPC supports assigning public DNS hostnames to instances with public IP addresses;
+4. `enableDnsSupport` - Determines whether the VPC supports DNS resolution through the Amazon provided DNS server;
+
+
+## Elastic IP
+1. public IPs are not static and, if an EC2 instance goes down, then it will get a new public IP;
+2. Elastic IPs are static IPv4 addresses that do not change;
+3. To use an Elastic IP address, you first allocate one to your account, and then associate ir with your instance or network interface;
+4. Elastic IPs are region specific and cannot be moved t oa different region;
+
+
+## Security Groups and NACLs
+### Security Groups, when there are no rules, block everythings
+* When you add a security group rule, it allows a certain type of traffic;
+* All security group rules "allow" traffic, there is no "deny" option for security groups;
+
+### NACLs rules can either allow or deny traffic
+
+### Summary
+1. Stateless firewall required traffic to be explicitly permitted inbound and outbound;
+2. Stateful firewalls are intelligent firewalls that track requests and allow response;
+3. Network ACLs filter traffic enteriing and leaving a subnet;
+4. Network ACLs are statless firewalls;
+5. Security Groups act as firewalls for individual resources such as EC2, NICs, and other network objects;
+6. Security Groups are stateful firewalls;
+7. Security Group rules only "allow" traffic, whereas NACL rules have the option to "allow" or "deny";
+8. Multiple Security Groups applied to a resrource will have their rules merged;
+9. Every subnet within a VPC must be associated with a network ACL;
+10. You can associate a network ACL with multiple subnets, however, a subnet can only be associated with only one network ACL at a time;
+
+
+## Load Balancers
+AWS have 3 Load Balanacers Types:
+1. Classic Load Balancer
+2. Aplication Load balancer
+3. Network Load Balancer
+
+### Classic Load Balancer (CLB)
+* First load balancer introduced by AWS
+* Not Recomended to use
+* That it has a lot of limited features, one of those also happens to be specific to SSL, They only support one SSL certificate per Classic Load Balancer;
+
+
+### Application Load balancer (ALB)
+* Support HTTP/HTTPS/WebSockets;
+* Function at the application layer (layer 7)
+* Forward requests based off of:
+    * URL Path conditions;
+    * Host domain;
+    * HTTP fields - header, method query and IP;
+    * Supports HTTP redirect and custom HTTP response;
+* Perform application-specific health checks;
+
+
+### Networtk Load Balancer (NLB)
+* Load balancer traffic based on TCP/UDP (layer 4);
+* Meant for applications that don't use HTTP/HTTPS;
+* Faster than Application load Balancers;
+* Health check are only basic ICMP/TCP connections;
+* NLB forwards TCP connections to instances;
+
+### Summary
+1. ELB auto-distributes incoming traffic across multiple targets in multiple Availability Zones;
+2. Distributes traffic to EC2 instances, IPs, and Lambda functions;
+3. Three types of ELB: Classic, Application, Network;
+4. CLB are outdated nd should be avoided;
+5. ALB functions on application layer and forwards HTTP/HTTPS traffic;
+6. NLB can forward non-HTTP/HTTPS traffic;
+7. NLBs are faster than ALBs;
+8. HTTP/HTTPS is always terminated on ALB and not Network Load Balancer;
+9. Cross-Zone Load balancing equally distributes traffic across all instances in all AZs;
+10. A listener matches traffic based on rules and handles connection requests;
+11. targert Groups route requests to registered EC2 instances based on specified protocol and port;
+
+
+## VPN
